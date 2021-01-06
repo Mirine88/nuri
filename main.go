@@ -9,7 +9,7 @@ import (
 
 type methodType string
 
-type handlerFuncType func(c Context) (int, string)
+type HandlerFuncType func(c Context) (int, string)
 
 // Context context
 type Context struct {
