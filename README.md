@@ -15,7 +15,7 @@ nuri.GET("/", func(c nuri.Context) (int, string) {
 print "<Hello, World!>"
 ```go
 nuri.GET("/", func(c nuri.Context) (int, string) {
-  return c.ToText(200, "Hello, World!")
+  return c.ToText(200, "<Hello, World!>")
 })
 ```
 
