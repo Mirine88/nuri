@@ -27,7 +27,7 @@ type Context struct {
 
 var (
 	handlers                        = []handler{}
-	notFoundHandler handlerFuncType = func(Context) (int, string) {
+	notFoundHandler HandlerFuncType = func(Context) (int, string) {
 		return http.StatusNotFound, "404 Not Found"
 	}
 )
@@ -57,10 +57,10 @@ var (
 type handler struct {
 	path    string
 	method  methodType
-	handler handlerFuncType
+	handler HandlerFuncType
 }
 
-func handlerMiddleware(path string, method methodType, h handlerFuncType) {
+func handlerMiddleware(path string, method methodType, h HandlerFuncType) {
 	handlers = append(handlers, handler{
 		path:    path,
 		method:  method,
@@ -69,58 +69,58 @@ func handlerMiddleware(path string, method methodType, h handlerFuncType) {
 }
 
 // Set404 shows a page that shows what you programmed when the path is not declared
-func Set404(h handlerFuncType) {
+func Set404(h HandlerFuncType) {
 	notFoundHandler = h
 }
 
 // SetNotFoundHandler shows a page that shows what you programmed when the path is not declared
 // It the same with Set404 function.
-func SetNotFoundHandler(h handlerFuncType) {
+func SetNotFoundHandler(h HandlerFuncType) {
 	Set404(h)
 }
 
 // GET handles a page when the method is GET
-func GET(path string, h handlerFuncType) {
+func GET(path string, h HandlerFuncType) {
 	handlerMiddleware(path, MethodGET, h)
 }
 
 // HEAD handles a page when the method is HEAD
-func HEAD(path string, h handlerFuncType) {
+func HEAD(path string, h HandlerFuncType) {
 	handlerMiddleware(path, MethodHEAD, h)
 }
 
 // POST handles a page when the method is POST
-func POST(path string, h handlerFuncType) {
+func POST(path string, h HandlerFuncType) {
 	handlerMiddleware(path, MethodPOST, h)
 }
 
 // PUT handles a page when the method is PUT
-func PUT(path string, h handlerFuncType) {
+func PUT(path string, h HandlerFuncType) {
 	handlerMiddleware(path, MethodPUT, h)
 }
 
 // DELETE handles a page when the method is DELETE
-func DELETE(path string, h handlerFuncType) {
+func DELETE(path string, h HandlerFuncType) {
 	handlerMiddleware(path, MethodDELETE, h)
 }
 
 // CONNECT handles a page when the method is CONNECT
-func CONNECT(path string, h handlerFuncType) {
+func CONNECT(path string, h HandlerFuncType) {
 	handlerMiddleware(path, MethodCONNECT, h)
 }
 
 // OPTIONS handles a page when the method is OPTIONS
-func OPTIONS(path string, h handlerFuncType) {
+func OPTIONS(path string, h HandlerFuncType) {
 	handlerMiddleware(path, MethodOPTIONS, h)
 }
 
 // TRACE handles a page when the method is TRACE
-func TRACE(path string, h handlerFuncType) {
+func TRACE(path string, h HandlerFuncType) {
 	handlerMiddleware(path, MethodTRACE, h)
 }
 
 // PATCH handles a page when the method is PATCH
-func PATCH(path string, h handlerFuncType) {
+func PATCH(path string, h HandlerFuncType) {
 	handlerMiddleware(path, MethodTRACE, h)
 }
 
