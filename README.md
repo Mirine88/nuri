@@ -1,6 +1,9 @@
 # nuri
 Nuri is web library on golang
 
+## Version
+v1.0.0
+
 ## Example
 
 print "Hello, World!" with status code, 200
