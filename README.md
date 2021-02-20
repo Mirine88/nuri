@@ -28,7 +28,7 @@ print HTML
 
 ```go
 nuri.GET("/", func(c nuri.Context) (int, string) {
-  return c.ToText(200, "<h1>Hello, World!</h1>")
+  return 200, "<h1>Hello, World!</h1>"
 })
 ```
 
